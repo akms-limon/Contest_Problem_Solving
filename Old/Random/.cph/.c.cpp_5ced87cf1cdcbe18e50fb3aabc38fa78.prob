@@ -1,0 +1,1 @@
+{"name":"Local: c","url":"/home/akmslimon/Desktop/Programming/C C++/Practice contest/c.cpp","tests":[{"id":1676303816842,"input":"2\n4\n5 4 2 6\n5\n1 2 4 8 16","output":"7\n31"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/akmslimon/Desktop/Programming/C C++/Practice contest/c.cpp","group":"local","local":true}
