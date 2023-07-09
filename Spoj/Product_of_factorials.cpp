@@ -1,6 +1,6 @@
 /**
  *    author: A K M S Limon
- *    created: 19-June-2023  16:45:52
+ *    created: 20-June-2023  01:09:27
 **/
 #include <bits/stdc++.h>
 #define nl "\n"
@@ -16,7 +16,7 @@
 #define srt(v) sort(v.begin(), v.end())
 #define rsrt(v) sort(v.rbegin(), v.rend())
 #define rvs(v) reverse(v.begin(), v.end())
-#define MOD 1000000007
+#define mod 109546051211
 #define gcd(a,b) __gcd(a,b)
 #define lcm(a,b) (a*b)/gcd(a,b)
 #define PI 3.14159
@@ -44,26 +44,16 @@ int isSubstring(string s, string sub) {
 int main(){
     ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
 
-    tc{
-        ll n, k, gold; cin>>n>>k>>gold;
-        ll silver = gold*k;
-        ll one = ceil(gold/2.0)-1;
-        if(one*n>=silver){
-            cout<<silver<<'\n';
-        }
-        else {
-            ll ans = one*(n-1);
-            ll x = silver - ans;
-            ll r = x%gold;
-            ll last;
-            if(r<ceil(gold/2.0)){
-                last = x - r;
-            }
-            else{
-                last = x+gold-r;
-            }
-            cout<<silver-last<<'\n';
-        }
+    ll n; cin>>n;
+    ll fact[n+1];
+    fact[0]=1;
+    for (int i = 1; i <= n; i++) {
+        fact[i]=(fact[i-1]%mod*i%mod)%mod;
     }
+    ll ans = 1;
+    for (int i = 1; i <= n; i++) {
+        ans= (unsigned __int128)ans*fact[i]%mod;
+    }
+    cout<<ans<<'\n';
     return 0;
 }

@@ -1,6 +1,6 @@
 /**
  *    author: A K M S Limon
- *    created: 19-June-2023  16:45:52
+ *    created: 20-June-2023  20:50:15
 **/
 #include <bits/stdc++.h>
 #define nl "\n"
@@ -45,25 +45,24 @@ int main(){
     ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
 
     tc{
-        ll n, k, gold; cin>>n>>k>>gold;
-        ll silver = gold*k;
-        ll one = ceil(gold/2.0)-1;
-        if(one*n>=silver){
-            cout<<silver<<'\n';
+        int n; cin>>n;
+        vector<int>v;
+        ll sum = 0;
+        for (int i = 0; i < n; i++) {
+            int a; cin>>a;
+            if(a!=0) v.push_back(a);
+            sum+=abs(a);
         }
-        else {
-            ll ans = one*(n-1);
-            ll x = silver - ans;
-            ll r = x%gold;
-            ll last;
-            if(r<ceil(gold/2.0)){
-                last = x - r;
+        ll cnt = 0;
+        for (int i = 0; i < v.size(); i++) {
+            if(v[i]<0) {
+                cnt++;
+                while(v[i]<0 && i<v.size()){
+                    i++;
+                }
             }
-            else{
-                last = x+gold-r;
-            }
-            cout<<silver-last<<'\n';
         }
+        cout<<sum<<' '<<cnt<<'\n';
     }
     return 0;
 }
