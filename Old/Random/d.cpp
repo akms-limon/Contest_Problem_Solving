@@ -1,63 +1,22 @@
-/**
- *    author: A K M S Limon
- *    created: 13-February-2023  21:44:49
-**/
 #include <bits/stdc++.h>
+using namespace std;
 #define nl "\n"
 #define nll cout<<"\n"
-#define ll long long
-#define pb push_back
-#define vc vector
-#define vi vc<int>
-#define vl vc<ll>
-#define all(v) v.begin(),v.end()
-#define rall(v) v.rbegin(),v.rend()
-#define tc int t; cin>>t; while(t--)
-#define srt(v) sort(v.begin(), v.end())
-#define rsrt(v) sort(v.rbegin(), v.rend())
-#define rvs(v) reverse(v.begin(), v.end())
-#define MOD 1000000007
-#define gcd(a,b) __gcd(a,b)
-#define lcm(a,b) (a*b)/gcd(a,b)
-#define PI 2*acos(0.0)
-#define pii pair<int,int>
-#define dbg(x) cerr<<x<<"\n"
-#define mp(x,y) make_pair(x,y)
-#define yes cout<<"YES"<<"\n"
-#define no cout<<"NO"<<"\n"
-#define fl(i,a,b) for(int i = a; i <= b; i++)
-#define fll(i,a,b) for(int i = a; i >= b; i--)
-#define ff first
-#define ss second
-#define flit(v) for(auto it=v.begin(); it!=v.end(); it++)
-#define cinx(array) { for (auto &x: array) cin >> x; }
-#define coutx(array) { for (auto x : array) cout << x << " "; cout << endl; }
-#define sumx(array,sum) { for (auto x: array) sum+=x;  }
-using namespace std;
 
-int main(){
-    ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
+void isprime(int x, vector<int>v)
+{
+    while(!(x%2))
+    {
+        v.push_back(2);
+        x=x/2;
+    }
 
-        tc{
-            ll n, k; 
-            cin>>n>>k;
-            ll a[n]; ll aa[n];
-            cinx(a); cinx(aa);
-            vector<ll>v;
-            ll sum=0;
-            for (int i = 0; i < n; i++)
-            {   
-                if(aa[i]>a[i])
-                v.push_back(abs(a[i]-aa[i]));
-                else v.push_back(0);
-                sum+=a[i];
-            }
-            sort(v.rbegin(), v.rend());
-            for (int i = 0; i < k ; i++)
-            {
-                sum+=v[i];
-            }
-            cout<<sum<<endl;
-        }
+}
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL), cout.tie(NULL);
+
+
     return 0;
 }

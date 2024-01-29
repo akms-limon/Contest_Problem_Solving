@@ -9,22 +9,14 @@
 #define coutx(array) { for (auto x : array) cout << x << " "; cout << endl; }
 using namespace std;
 
-ll euclid_gcd(ll a, ll b) {
-    if (a == 0) return b;
-    return euclid_gcd(b % a, a);
-}
-
 int main(){
     ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
 
-    ll n, m, l, r;
-    cin >> n >> m >> l >> r;
-    if (n/euclid_gcd(n,m)>r/m){
-        cout<<0<<endl;
-    }
-    else    {
-        ll lc = (n / euclid_gcd(n, m)) * m;
-        cout << (r / lc) - (l -1) / lc << '\n';
-    }
+    ll nn, mm, lL, rr;
+    cin >> nn >> mm >> lL >> rr;
+    __int128 gcd, lc, n = nn, m = mm, l = lL, r = rr;
+    gcd = __gcd(n,  m);
+    lc = (m / gcd) * n;
+    cout <<(ll) ((r / lc) - ((l - 1) / lc)) << '\n';
     return 0;
 }
