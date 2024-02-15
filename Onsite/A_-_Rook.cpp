@@ -13,18 +13,17 @@ int main(){
     ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
 
     tc{
-        int n; cin >> n;
-        int a[n]; 
-        for (int i = 0; i < n; i++) {
-            cin >> a[i];
+        string s; cin >> s;
+        char c = s[0];
+        int x = (s[1] - '0');
+        for (char i = 'a'; i <= 'h'; i++) {
+            if (i != c) {
+                cout << i << x << '\n';
+            }
         }
-        ll ans = 0;
-        for (int k = 1; k <= n; k++) {
-            if (n % k == 0) {
-                int gcd = 0;
-                for (int j = 0; j <= n - k; j+=k) {
-                    gcd = __gcd(gcd, abs(a[j] - a[j + k]));
-                }
+        for (int i = 1; i <= 8; i++) {
+            if (i != x) {
+                cout << c << i << '\n';
             }
         }
     }
