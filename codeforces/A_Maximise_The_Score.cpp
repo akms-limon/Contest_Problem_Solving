@@ -14,21 +14,17 @@ int main(){
 
     tc{
         int n; cin >> n;
-        int a[n];
-        for (int i = 0; i < n; i++) {
+        ll ans = 0;
+        int a[2 * n];
+        for (int i = 0; i < 2 * n; i++) {
             cin >> a[i];
         }
-        ll cnt = 0;
-        for (int k = 1; k <= n; k++) {
-            if (n % k == 0) {
-                int gcd = 0;
-                for (int i = 0; i < n - k; i++) {
-                    gcd = __gcd(gcd, abs(a[i] - a[i + k]));
-                }
-                cnt+= (gcd != 1);
-            }
+        sort(a, a + 2 * n);
+        reverse(a, a + 2 * n);
+        for (int i = 0; i < 2 * n; i++) {
+            if (i % 2) ans+= a[i];
         }
-        cout << cnt << '\n';
+        cout << ans << '\n';
     }
     return 0;
 }

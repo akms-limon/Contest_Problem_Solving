@@ -18,15 +18,14 @@ int main(){
         for (int i = 0; i < n; i++) {
             cin >> a[i];
         }
-        ll cnt = 0;
-        for (int k = 1; k <= n; k++) {
-            if (n % k == 0) {
-                int gcd = 0;
-                for (int i = 0; i < n - k; i++) {
-                    gcd = __gcd(gcd, abs(a[i] - a[i + k]));
-                }
-                cnt+= (gcd != 1);
+        int mn = a[0], nextmn = INT_MAX;
+        int cnt = 0;
+        for (int i = 0; i < n; i++) {
+            if (a[i] > mn && a[i] < nextmn) {
+                cnt++;
+                nextmn = a[i];
             }
+            mn = min(mn, a[i]);
         }
         cout << cnt << '\n';
     }

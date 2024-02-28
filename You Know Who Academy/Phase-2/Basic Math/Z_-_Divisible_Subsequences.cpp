@@ -13,22 +13,22 @@ int main(){
     ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
 
     tc{
-        int n; cin >> n;
-        int a[n];
+        ll d, n; cin >> d >> n;
+        ll a[n];
+        ll ans = 0;
+        map<ll, ll> mp;
         for (int i = 0; i < n; i++) {
             cin >> a[i];
+            if (i != 0)
+            a[i] += a[i - 1];
+            a[i] %= d;
+            mp[a[i]]++;
         }
-        ll cnt = 0;
-        for (int k = 1; k <= n; k++) {
-            if (n % k == 0) {
-                int gcd = 0;
-                for (int i = 0; i < n - k; i++) {
-                    gcd = __gcd(gcd, abs(a[i] - a[i + k]));
-                }
-                cnt+= (gcd != 1);
-            }
+        for (auto it : mp) {
+            if (it.first == 0) ans += it.second; 
+            ans += (it.second * (it.second - 1) / 2);
         }
-        cout << cnt << '\n';
+        cout << ans << '\n';
     }
     return 0;
 }

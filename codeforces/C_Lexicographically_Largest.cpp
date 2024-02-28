@@ -15,20 +15,32 @@ int main(){
     tc{
         int n; cin >> n;
         int a[n];
+        set<int>s;
         for (int i = 0; i < n; i++) {
             cin >> a[i];
         }
-        ll cnt = 0;
-        for (int k = 1; k <= n; k++) {
-            if (n % k == 0) {
-                int gcd = 0;
-                for (int i = 0; i < n - k; i++) {
-                    gcd = __gcd(gcd, abs(a[i] - a[i + k]));
-                }
-                cnt+= (gcd != 1);
+        for (int i = n - 1; i >= 0; i--) {
+            int cnt = 0;
+            int x = a[i] + i + 1;
+            while (a[i] + i + 1 == x) {
+                cnt++;
+                i--;
             }
+            for (int i = 0; i < cnt; i++) {
+                s.insert(x);
+                x--;
+            }
+            i++;
         }
-        cout << cnt << '\n';
+        vector<int> ans;
+        for (auto it : s) {
+            ans.push_back(it);
+        }
+        reverse(ans.begin(), ans.end());
+        for (int i = 0; i < ans.size(); i++) {
+            cout << ans[i] << ' ';
+        }
+        cout << '\n';
     }
     return 0;
 }

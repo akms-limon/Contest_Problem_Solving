@@ -12,23 +12,28 @@ using namespace std;
 int main(){
     ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
 
+    int cs = 1;
     tc{
-        int n; cin >> n;
-        int a[n];
+        int n, q; cin >> n >> q;
+        int a[n]; 
         for (int i = 0; i < n; i++) {
             cin >> a[i];
         }
-        ll cnt = 0;
-        for (int k = 1; k <= n; k++) {
-            if (n % k == 0) {
-                int gcd = 0;
-                for (int i = 0; i < n - k; i++) {
-                    gcd = __gcd(gcd, abs(a[i] - a[i + k]));
-                }
-                cnt+= (gcd != 1);
+        ll sum = 0;
+        for (int i = 0; i < n; i++) {
+            sum += (1LL * a[i] * (n - 2 * i - 1));
+        }
+        cout << "Case " << cs++ << ":\n";
+        for (int i = 0; i < q; i++) {
+            int type; cin >> type; 
+            if (type) cout << sum << '\n';
+            else {
+                int x, y; cin >> x >> y;
+                sum -= (1LL * a[x] * (n - 2 * x - 1));
+                a[x] = y;
+                sum += (1LL * a[x] * (n - 2 * x - 1)); 
             }
         }
-        cout << cnt << '\n';
     }
     return 0;
 }

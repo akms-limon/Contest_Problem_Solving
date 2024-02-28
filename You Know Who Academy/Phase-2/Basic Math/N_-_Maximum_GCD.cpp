@@ -14,21 +14,7 @@ int main(){
 
     tc{
         int n; cin >> n;
-        int a[n];
-        for (int i = 0; i < n; i++) {
-            cin >> a[i];
-        }
-        ll cnt = 0;
-        for (int k = 1; k <= n; k++) {
-            if (n % k == 0) {
-                int gcd = 0;
-                for (int i = 0; i < n - k; i++) {
-                    gcd = __gcd(gcd, abs(a[i] - a[i + k]));
-                }
-                cnt+= (gcd != 1);
-            }
-        }
-        cout << cnt << '\n';
+        cout << n / 2 << '\n';
     }
     return 0;
 }

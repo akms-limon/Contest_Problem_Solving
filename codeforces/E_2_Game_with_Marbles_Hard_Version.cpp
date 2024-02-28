@@ -15,20 +15,27 @@ int main(){
     tc{
         int n; cin >> n;
         int a[n];
+        int b[n];
+        vector<pair<int, pair<int, int>>> v;
         for (int i = 0; i < n; i++) {
             cin >> a[i];
         }
-        ll cnt = 0;
-        for (int k = 1; k <= n; k++) {
-            if (n % k == 0) {
-                int gcd = 0;
-                for (int i = 0; i < n - k; i++) {
-                    gcd = __gcd(gcd, abs(a[i] - a[i + k]));
-                }
-                cnt+= (gcd != 1);
+        for (int i = 0; i < n; i++) {
+            cin >> b[i];
+            v.push_back(make_pair(abs(a[i] + b[i]), make_pair(a[i], b[i])));
+        }
+        sort(v.begin(), v.end());
+        ll ans = 0;
+        for (int j = n - 1; j >= 0; j-=2) {
+            if (j == 0){
+                ans+= (v[j].second.first - 1);
+            }
+            else {
+                ans+= (v[j].second.first - 1);
+                ans-= (v[j - 1].second.second - 1);
             }
         }
-        cout << cnt << '\n';
+        cout << ans << '\n';
     }
     return 0;
 }

@@ -13,22 +13,30 @@ int main(){
     ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
 
     tc{
-        int n; cin >> n;
-        int a[n];
+        int n, k; cin >> n >> k;
+        int a[n], b[n];
         for (int i = 0; i < n; i++) {
             cin >> a[i];
         }
-        ll cnt = 0;
-        for (int k = 1; k <= n; k++) {
-            if (n % k == 0) {
-                int gcd = 0;
-                for (int i = 0; i < n - k; i++) {
-                    gcd = __gcd(gcd, abs(a[i] - a[i + k]));
-                }
-                cnt+= (gcd != 1);
+        for (int i = 0; i < n; i++) {
+            cin >> b[i];
+        }
+        ll v[n + 1];
+        memset(v, 0, sizeof(v));
+        for (int i = 0; i < n; i++) {
+            v[abs(b[i])] += a[i];
+        }
+        bool bl = true;
+        ll curr = k;
+        for (int i = 1; i <= n; i++) {
+            if (v[i] > curr) bl = false;
+            else {
+                curr -= v[i];
+                curr += k;
             }
         }
-        cout << cnt << '\n';
+        if (bl) yes;
+        else no;
     }
     return 0;
 }

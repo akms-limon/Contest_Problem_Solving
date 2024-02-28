@@ -12,23 +12,16 @@ using namespace std;
 int main(){
     ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
 
-    tc{
-        int n; cin >> n;
-        int a[n];
-        for (int i = 0; i < n; i++) {
-            cin >> a[i];
-        }
-        ll cnt = 0;
-        for (int k = 1; k <= n; k++) {
-            if (n % k == 0) {
-                int gcd = 0;
-                for (int i = 0; i < n - k; i++) {
-                    gcd = __gcd(gcd, abs(a[i] - a[i + k]));
-                }
-                cnt+= (gcd != 1);
+    ll n; cin >> n;
+    ll ans;
+    for (ll i = 1; i <= sqrt(n); i++) {
+        if (n % i == 0) {
+            ll x = i, y = n / i;
+            if ((x * y) / __gcd(x, y) == n) {
+                ans = i;
             }
         }
-        cout << cnt << '\n';
     }
+    cout << ans << ' ' << n / ans << '\n';
     return 0;
 }

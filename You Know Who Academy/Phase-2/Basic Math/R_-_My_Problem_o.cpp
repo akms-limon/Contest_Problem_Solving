@@ -18,17 +18,18 @@ int main(){
         for (int i = 0; i < n; i++) {
             cin >> a[i];
         }
-        ll cnt = 0;
-        for (int k = 1; k <= n; k++) {
-            if (n % k == 0) {
-                int gcd = 0;
-                for (int i = 0; i < n - k; i++) {
-                    gcd = __gcd(gcd, abs(a[i] - a[i + k]));
+        bool ok = true;
+        for (int i = 0; i < min(n, 21); i++) {
+            bool bl = false;
+            for (int j = 2; j <= i + 2; j++) {
+                if (a[i] % j) {
+                    bl = true;
                 }
-                cnt+= (gcd != 1);
             }
+            if (!bl) ok = false; 
         }
-        cout << cnt << '\n';
+        if (ok) cout << "YES" << '\n';
+        else cout << "NO" << '\n';
     }
     return 0;
 }

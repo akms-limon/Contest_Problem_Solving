@@ -18,17 +18,29 @@ int main(){
         for (int i = 0; i < n; i++) {
             cin >> a[i];
         }
-        ll cnt = 0;
-        for (int k = 1; k <= n; k++) {
-            if (n % k == 0) {
-                int gcd = 0;
-                for (int i = 0; i < n - k; i++) {
-                    gcd = __gcd(gcd, abs(a[i] - a[i + k]));
-                }
-                cnt+= (gcd != 1);
+        int i = 0;
+        while(a[i] == 0) {
+            a[i] = -1;
+            i++;
+        }
+        i = n - 1;
+        while (a[i] == 0) {
+            a[i] = -1;
+            i--;
+        }
+        vector<int> v;
+        for (i = 0; i < n; i++) {
+            if (a[i] != -1) {
+                v.push_back(a[i]);
             }
         }
-        cout << cnt << '\n';
+        int ans = 0;
+        for (i = 0; i < v.size(); i++) {
+            if (v[i] == 0) {
+                ans++;
+            }
+        }
+        cout << ans << '\n';
     }
     return 0;
 }
