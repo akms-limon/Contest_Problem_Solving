@@ -4,8 +4,7 @@ using namespace std;
 int main(void) {
 	int t;
 	cin>>t;
-	while(t--)
-	{
+	while(t--) {
 	    int n,s;
 	    cin>>n;
 	    string str;
