@@ -1,11 +1,17 @@
 /**
  *    author: A K M S Limon
+<<<<<<< HEAD
+ *    created: 03-May-2024  13:08:10
+=======
  *    created: 04-May-2024  01:21:40
+>>>>>>> cf26d12153032e4cb684139680d5952fc81e928a
 **/
 #include <bits/stdc++.h>
 #define ll long long
 using namespace std;
 
+<<<<<<< HEAD
+=======
 const int N = 30000 + 10, Q = 1e5 + 10;
 ll a[N];
 ll t[4 * N];
@@ -49,10 +55,26 @@ void upd(int n, int b, int e, int i, int x){
 
 vector<pair<int, int>> v[Q];
 
+>>>>>>> cf26d12153032e4cb684139680d5952fc81e928a
 int main() {
     ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
 
     int n; cin >> n;
+<<<<<<< HEAD
+    int a[n + 1];
+    for (int i = 1; i <= n; i++) {
+        cin >> a[i];
+    }
+    int q; cin >> q;
+    vector<vector<pair<int, int>>> Q;
+    for (int i = 1; i <= n; i++) {
+        int l, r;
+        cin >> l >> r;
+        Q[r].push_back({l, i});
+    }
+    for (int i = 1; i <= n; i++) {
+        
+=======
     for (int i = 1; i <= n; i++) {
         cin >> a[i];
     }
@@ -76,6 +98,7 @@ int main() {
     }
     for (int i = 1; i <= m; i++) {
         cout << ans[i] << '\n';
+>>>>>>> cf26d12153032e4cb684139680d5952fc81e928a
     }
     return 0;
 }
