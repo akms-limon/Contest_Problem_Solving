@@ -13,20 +13,24 @@ int main(){
     ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
 
     tc{
-        ll n, mx, need; cin >> n >> mx >> need;
-        ll cost[n];
-        for (int i = 0; i < n; i++) {
-            cin >> cost[i];
+        int n; cin >> n;
+        string s; cin >> s;
+        string s1 = s;
+        sort(s.begin(), s.end());
+        bool bl = false;
+        if (s1 == s) {
+            bl = true;
+            for (int i = 0; i < n; i++) {
+                if ((s[i] >= '0' && s[i] <= '9') || (s[i] >= 'a' && s[i] <= 'z')) {
+
+                }
+                else {
+                    bl = false;
+                }
+            }
         }
-        ll ans = 0, tax = 0;
-        sort(cost, cost + n);
-        for(int i = 0; i < n; i++) {
-            ll temp = min(need, mx);
-            ans += (temp * (cost[i] + tax));
-            tax += temp;
-            need -= temp;
-        }
-        cout << ans << '\n';
+        if (bl) yes;
+        else no;
     }
     return 0;
 }
