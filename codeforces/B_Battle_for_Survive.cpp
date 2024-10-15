@@ -1,6 +1,6 @@
 /**
  *    author: A K M S Limon
- *    created: 28-September-2024  15:40:23
+ *    created: 20-September-2024  20:47:52
 **/
 #include <bits/stdc++.h>
 #define ll long long
@@ -13,17 +13,14 @@ int main() {
     while (t--) {
         int n; cin >> n;
         int a[n];
+        ll sum = 0;
         for (int i = 0; i < n; i++) {
             cin >> a[i];
+            if (i < n - 2) {
+                sum += a[i];
+            }
         }
-        for (int i = 0; i < n; i++) {
-            cout << a[i] << ' ';
-        }
-        cout << '\n';
-        ll sum = 0; 
-        for (int i = 0; i < n; i++) {
-            sum += a[i];
-        }
+        cout << a[n - 1] - (a[n - 2] - sum) << '\n';
     }
     return 0;
 }

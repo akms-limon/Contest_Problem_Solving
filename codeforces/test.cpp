@@ -1,6 +1,6 @@
 /**
  *    author: A K M S Limon
- *    created: 28-September-2024  15:40:23
+ *    created: 17-September-2024  10:52:19
 **/
 #include <bits/stdc++.h>
 #define ll long long
@@ -16,13 +16,20 @@ int main() {
         for (int i = 0; i < n; i++) {
             cin >> a[i];
         }
+        map<int, int> mp;
         for (int i = 0; i < n; i++) {
-            cout << a[i] << ' ';
+            mp[a[i]]++;
         }
-        cout << '\n';
-        ll sum = 0; 
+        for (auto it : mp) {
+            cout << it.first << ' ' << it.second << '\n';
+        }
+        for (auto it : mp) {
+            if (it.first > 1) {
+                cout << "yes" << '\n';
+            }
+        }
         for (int i = 0; i < n; i++) {
-            sum += a[i];
+            int x; cin >> x;
         }
     }
     return 0;
