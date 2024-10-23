@@ -12,6 +12,7 @@ int32_t main() {
     int t; cin >> t;
     while (t--) {
         int n; cin >> n;
+<<<<<<< HEAD
         map<pair<int, int>, int> mp;
         vector<int> v;
         for (int i = 0; i < n; i++) {
@@ -30,6 +31,16 @@ int32_t main() {
         }
         for (auto it : mp) {
             cout << it.first.first << ' ' << it.first.second << ' ';
+=======
+        vector<pair<int, pair<int, int>>> v;
+        for (int i = 0; i < n; i++) {
+            int a, b; cin >> a >> b;
+            v.push_back({a + b, {a, b}});
+        }
+        sort(v.begin(), v.end());
+        for (auto it : v) {
+            cout << it.second.first << ' ' << it.second.second << ' ';
+>>>>>>> 46f73dcf1cf9c7940ffaf59e0577aed7592f4443
         }
         cout << '\n';
     }

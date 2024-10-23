@@ -18,6 +18,12 @@ using namespace std;
 #define endc return 0
 ll mod = 1000000007;
 
+<<<<<<< HEAD
+int main(){
+	int n; cin>>n;
+	return 0;
+}
+=======
 int main()
 {
     run_fast;
@@ -80,3 +86,4 @@ int main()
     }
     endc;
 }
+>>>>>>> a0179cd2126338ceab37e0095e576bafdacfbc09
