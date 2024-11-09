@@ -4,7 +4,11 @@
  **/
 #include <bits/stdc++.h>
 using namespace std;
+<<<<<<< HEAD
 #define int long long
+=======
+#define ll long long
+>>>>>>> 054cde753b070697a9706cdef62a19e41e2dde10
 
 int32_t main() {
     ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
@@ -21,7 +25,11 @@ int32_t main() {
         for (int i = 1; i <= n; i++) {
             a[i] += a[i - 1];
         }
+<<<<<<< HEAD
         int ans = 0;
+=======
+        ll ans = 0;
+>>>>>>> 054cde753b070697a9706cdef62a19e41e2dde10
         for (int i = 0; i <= n; i++) {
             if (s.find(a[i]) != s.end()) {
                 ans++;
