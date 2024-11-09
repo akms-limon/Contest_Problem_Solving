@@ -1,28 +1,31 @@
 #include<bits/stdc++.h>
-#define ll long long
+#define int long long
 using namespace std;
 
-const int N = 1e5 + 9, inf = 1e9 + 7;
-int h[N], dp[N];
+const int inf = 1e12;
+const int N = 1e5 + 7;
 
-int frog(int n) {
-	if (n == 0) return 0;
-	if (n < 0) return inf;
-	if (dp[n] != -1) return dp[n];
-	int ans = frog(n - 1) + abs(h[n - 1] - h[n]);
-	ans = min(ans, frog(n - 2) + abs(h[n - 2] - h[n]));
-	return dp[n] = ans;
+int dp[N];
+int a[N];
+int n;
+
+int rec(int i) {
+	if (i >= n) return inf;
+	if (i == n - 1) return 0;
+	int &ans = dp[i];
+	if (ans != -1) return ans;
+	return ans = min(rec(i + 1) + abs(a[i] - a[i + 1]), rec(i + 2) + abs(a[i] - a[i + 2]));
 }
 
-int main() {
+int32_t main() {
 	ios_base::sync_with_stdio(false);cin.tie(NULL);
 	cout.tie(NULL);
 
-	int n; cin >> n;
+	cin >> n;
 	for (int i = 0; i < n; i++) {
-		cin >> h[i];
+		cin >> a[i];
 	}
 	memset(dp, -1, sizeof dp);
-	cout << frog(n - 1) << '\n';
+	cout << rec(0) << '\n';
 	return 0;
 }
