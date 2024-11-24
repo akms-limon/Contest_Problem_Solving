@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prescribe Medicine</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* 3D Card Effect */
+    .form-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .form-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Button Press Effect */
+    .btn-3d:active {
+      transform: translateY(2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-gray-100 via-blue-100 to-blue-300">
+  <div class="min-h-screen flex items-center justify-center">
+    <div class="form-card bg-white shadow-lg rounded-2xl w-full max-w-md p-8">
+      <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">Prescribe Medicine</h1>
+      
+      <form class="space-y-6">
+        <!-- Patient Name -->
+        <div>
+          <label for="patient-name" class="block text-sm font-medium text-gray-700">Patient Name</label>
+          <input 
+            type="text" 
+            id="patient-name" 
+            class="mt-2 block w-full rounded-xl border-gray-300 shadow-md focus:ring-blue-500 focus:border-blue-500"
+            placeholder="Enter patient's name"
+          >
+        </div>
+
+        <!-- Patient Age -->
+        <div>
+          <label for="patient-age" class="block text-sm font-medium text-gray-700">Patient Age</label>
+          <input 
+            type="number" 
+            id="patient-age" 
+            class="mt-2 block w-full rounded-xl border-gray-300 shadow-md focus:ring-blue-500 focus:border-blue-500"
+            placeholder="Enter patient's age"
+          >
+        </div>
+
+        <!-- Medicine Name -->
+        <div>
+          <label for="medicine-name" class="block text-sm font-medium text-gray-700">Medicine Name</label>
+          <input 
+            type="text" 
+            id="medicine-name" 
+            class="mt-2 block w-full rounded-xl border-gray-300 shadow-md focus:ring-blue-500 focus:border-blue-500"
+            placeholder="Enter medicine name"
+          >
+        </div>
+
+        <!-- Dosage -->
+        <div>
+          <label for="dosage" class="block text-sm font-medium text-gray-700">Dosage</label>
+          <input 
+            type="text" 
+            id="dosage" 
+            class="mt-2 block w-full rounded-xl border-gray-300 shadow-md focus:ring-blue-500 focus:border-blue-500"
+            placeholder="e.g., 1 tablet after meals"
+          >
+        </div>
+
+        <!-- Prescription Notes -->
+        <div>
+          <label for="notes" class="block text-sm font-medium text-gray-700">Additional Notes</label>
+          <textarea 
+            id="notes" 
+            class="mt-2 block w-full rounded-xl border-gray-300 shadow-md focus:ring-blue-500 focus:border-blue-500"
+            placeholder="Additional instructions"
+            rows="4"
+          ></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <div>
+          <button 
+            type="submit" 
+            class="btn-3d w-full py-3 px-5 bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl hover:from-blue-600 hover:to-indigo-600 focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
+          >
+            Prescribe
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
