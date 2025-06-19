@@ -1,31 +1,25 @@
 #include<bits/stdc++.h>
-#define int long long
 using namespace std;
 
-const int inf = 1e12;
-const int N = 1e5 + 7;
+const int N = 1e5;
+const int inf = 1e9;
 
-int dp[N];
-int a[N];
 int n;
+int a[N];
+int dp[N];
 
-int rec(int i) {
-	if (i >= n) return inf;
+int solve(int i) {
 	if (i == n - 1) return 0;
-	int &ans = dp[i];
-	if (ans != -1) return ans;
-	return ans = min(rec(i + 1) + abs(a[i] - a[i + 1]), rec(i + 2) + abs(a[i] - a[i + 2]));
+	if (i >= n) return inf;
+	if (dp[i] != -1) return dp[i];
+	return dp[i] = min(solve(i + 1) + abs(a[i] - a[i + 1]), solve(i + 2) + abs(a[i] - a[i + 2]));
 }
 
-int32_t main() {
-	ios_base::sync_with_stdio(false);cin.tie(NULL);
-	cout.tie(NULL);
-
+int main() {
 	cin >> n;
 	for (int i = 0; i < n; i++) {
 		cin >> a[i];
 	}
-	memset(dp, -1, sizeof dp);
-	cout << rec(0) << '\n';
-	return 0;
+	memset(dp, -1, sizeof(dp));
+	cout << solve(0) << '\n';
 }
